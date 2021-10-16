@@ -1,0 +1,2 @@
+FMOD Ruby wrapper by ForeverZer0 (https://github.com/ForeverZer0)
+GitHub Repository: https://github.com/ForeverZer0/fmod/
