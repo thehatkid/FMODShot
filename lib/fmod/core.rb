@@ -8,6 +8,7 @@ module FMOD
   module Core
     require_relative './core/structure'
     require_relative './core/structures'
+    require_relative './core/advanced_settings'
     require_relative './core/bool_description'
     require_relative './core/channel_mask'
     require_relative './core/data_description'
