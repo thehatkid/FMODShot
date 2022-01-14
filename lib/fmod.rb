@@ -336,7 +336,7 @@ module FMOD
     System_AttachChannelGroupToPort: [TYPE_VOIDP, TYPE_INT, TYPE_INT, TYPE_VOIDP, TYPE_INT],
     System_AttachFileSystem: Array.new(5, TYPE_VOIDP),
     System_Close: [TYPE_VOIDP],
-    System_Create: [TYPE_VOIDP],
+    System_Create: [TYPE_VOIDP, TYPE_INT],
     System_CreateChannelGroup: [TYPE_VOIDP, TYPE_VOIDP, TYPE_VOIDP],
     # System_CreateDSP: [TYPE_VOIDP],
     # System_CreateDSPByPlugin: [TYPE_VOIDP],
@@ -469,8 +469,8 @@ module FMOD
   # @return [true] if no errors occurred, otherwise exception will be raised.
   def self.load_library(library = nil, directory = nil)
     if library.nil?
-      library =  case platform
-      when :WINDOWS then SIZEOF_INTPTR_T == 4 ? 'fmod.dll' : 'fmod64.dll'
+      library = case platform
+      when :WINDOWS then 'fmod.dll'
       when :MACOSX then 'libfmod.dylib'
       when :LINUX then 'libfmod.so'
       else 'fmod'  # Will probably fail...

@@ -238,7 +238,8 @@ module FMOD
       max = [options[:max_channels] || 32, 4093].min
       flags = options[:flags] || InitFlags::NORMAL
       driver = options[:driver_data] || FMOD::NULL
-      FMOD.invoke(:System_Create, address = "\0" * SIZEOF_INTPTR_T)
+      # creates system for FMOD API 2.02 (0x20200)
+      FMOD.invoke(:System_Create, address = "\0" * SIZEOF_INTPTR_T, 0x20200)
       system = new(address)
       FMOD.invoke(:System_Init, system, max, flags, driver)
       system
